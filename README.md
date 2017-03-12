@@ -54,3 +54,7 @@ like this:
 		...
 	</project>
 ```
+
+## Project Website
+
+The project website is located at http://dev.sepp-tember.net/tweak-release-plugin-messages/
