@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-set>
+	<components>
+		<component>
+			<role>org.apache.maven.shared.release.phase.ReleasePhase</role>
+			<role-hint>scm-commit-release</role-hint>
+			<implementation>org.apache.maven.shared.release.phase.ScmCommitPreparationPhase</implementation>
+			<requirements>
+				<requirement>
+					<role>org.apache.maven.shared.release.scm.ScmRepositoryConfigurator</role>
+				</requirement>
+			</requirements>
+			<configuration>
+				<messageFormat>Prepare release {0}</messageFormat>
+			</configuration>
+		</component>
+		<component>
+			<role>org.apache.maven.shared.release.phase.ReleasePhase</role>
+			<role-hint>scm-commit-development</role-hint>
+			<implementation>org.apache.maven.shared.release.phase.ScmCommitDevelopmentPhase</implementation>
+			<requirements>
+				<requirement>
+					<role>org.apache.maven.shared.release.scm.ScmRepositoryConfigurator</role>
+				</requirement>
+			</requirements>
+			<configuration>
+				<messageFormat>Prepare for next development iteration</messageFormat>
+				<rollbackMessageFormat>Rollback changes from release preparation of {0}</rollbackMessageFormat>
+			</configuration>
+		</component>
+		<component>
+			<role>org.apache.maven.shared.release.phase.ReleasePhase</role>
+			<role-hint>scm-commit-branch</role-hint>
+			<implementation>org.apache.maven.shared.release.phase.ScmCommitPreparationPhase</implementation>
+			<requirements>
+				<requirement>
+					<role>org.apache.maven.shared.release.scm.ScmRepositoryConfigurator</role>
+				</requirement>
+			</requirements>
+			<configuration>
+				<messageFormat>Prepare branch {0}</messageFormat>
+			</configuration>
+		</component>
+		<component>
+			<role>org.apache.maven.shared.release.phase.ReleasePhase</role>
+			<role-hint>scm-commit-rollback</role-hint>
+			<implementation>org.apache.maven.shared.release.phase.ScmCommitPreparationPhase</implementation>
+			<requirements>
+				<requirement>
+					<role>org.apache.maven.shared.release.scm.ScmRepositoryConfigurator</role>
+				</requirement>
+			</requirements>
+			<configuration>
+				<messageFormat>Rollback the release of {0}</messageFormat>
+			</configuration>
+		</component>
+	</components>
+</component-set>
