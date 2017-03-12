@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>net.sepp-tember.maven</groupId>
+	<artifactId>tweak-release-plugin-messages</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<name>tweak-release-plugin-messages</name>
+	<description>Tweak commit messages of Maven release plugin to start with upper case letter.</description>
+	<url>http://dev.sepp-tember.net/tweak-release-plugin-messages</url>
+
+	<licenses>
+		<license>
+			<name>Unlicense</name>
+			<url>http://unlicense.org/</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Martin Wachtler</name>
+			<email>martin.wachtler@gmail.com</email>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:https://github.com/sepp-tember/tweak-release-plugin-messages.git</connection>
+		<developerConnection>scm:git:git@github.com:sepp-tember/tweak-release-plugin-messages.git</developerConnection>
+		<url>https://github.com/sepp-tember/tweak-release-plugin-messages</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<properties>
+		<scmCommentPrefix />
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+				<executions>
+					<execution>
+						<id>default-cli</id>
+						<goals>
+							<goal>prepare</goal>
+						</goals>
+<!--
+						<configuration>
+							<scmCommentPrefix></scmCommentPrefix>
+						</configuration>
+-->
+					</execution>
+				</executions>
+				<configuration>
+					<pushChanges>false</pushChanges>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>net.sepp-tember.maven</groupId>
+						<artifactId>tweak-release-plugin-messages</artifactId>
+						<version>${project.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>sepp-tember-releases</id>
+			<name>sepp-tember.net Releases Repository</name>
+			<url>ftp://kontentftp.sepp-tember.net/maven/htdocs/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>sepp-tember-snapshots</id>
+			<name>sepp-tember.net Snapshots Repository</name>
+			<url>ftp://kontentftp.sepp-tember.net/maven/htdocs/snapshots/</url>
+		</snapshotRepository>
+		<site>
+			<id>sepp-tember-site</id>
+			<name>sepp-tember.net Dev Website</name>
+			<url>ftp://kontentftp.sepp-tember.net/dev/htdocs/tweak-release-plugin-messages/</url>
+		</site>
+	</distributionManagement>
+</project>
