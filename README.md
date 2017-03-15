@@ -42,15 +42,15 @@ like this:
 			</plugins>
 		</build>
 		...
-		<repositories>
-			<repository>
+		<pluginRepositories>
+			<pluginRepository>
 				<releases>
 					<enabled>true</enabled>
 				</releases>
 				<id>sepp-tember-snapshots</id>
 				<url>http://maven.sepp-tember.net/releases/</url>
-			</repository>
-		</repositories>
+			</pluginRepository>
+		</pluginRepositories>
 		...
 	</project>
 ```
